@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "@/styles/globals.css";
 import RecoilRootProvider from "@/components/provider/RecoilRootProvider";
+import clsx from "clsx";
+import GlobalPageLayout from "@/components/layout/GlobalPage.layout";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,10 +19,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <div>
-          <RecoilRootProvider>{children}</RecoilRootProvider>
-        </div>
+      <body className={clsx(inter.className, "flex justify-center")}>
+        <RecoilRootProvider>
+          <GlobalPageLayout>{children}</GlobalPageLayout>
+        </RecoilRootProvider>
       </body>
     </html>
   );
