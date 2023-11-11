@@ -1,5 +1,6 @@
 import FontButton from "@/components/FontButton";
 import Text from "@/components/Text";
+
 import clsx from "clsx";
 
 export default function Home() {

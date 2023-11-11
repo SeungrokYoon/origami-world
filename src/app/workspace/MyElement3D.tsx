@@ -32,12 +32,6 @@ export default function MyElement3D() {
           opacity={0.5}
           transparent={true}
         />
-        <axesHelper />
-        <mesh scale={[0.1, 0.1, 0.1]} position-y={2}>
-          <sphereGeometry />
-          <meshStandardMaterial color={"red"} />
-          <axesHelper scale={5} />
-        </mesh>
       </mesh>
     </>
   );
