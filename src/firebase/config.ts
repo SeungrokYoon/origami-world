@@ -1,4 +1,5 @@
 import { getApps, initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
 import process from "process";
 
 export const firebaseConfig = {
@@ -13,5 +14,7 @@ export const firebaseConfig = {
 
 const FIREBASE_APP =
   getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0];
+
+export const FIREBASE_AUTH = getAuth(FIREBASE_APP);
 
 export default FIREBASE_APP;

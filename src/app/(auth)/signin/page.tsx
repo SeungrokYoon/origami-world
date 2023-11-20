@@ -1,12 +1,11 @@
 "use client";
 
-import { useFireBaseAuthContext } from "@/context/FirebaseContextProvider";
+import { useFireBaseAuthContext } from "@/context/AuthContext";
 import signin from "@/firebase/auth/sign-in";
 import { useRouter } from "next/navigation";
 import { useState, FormEvent, useEffect } from "react";
 
 export default function SigninPage() {
-  const { loggedIn } = useFireBaseAuthContext();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
@@ -14,13 +13,11 @@ export default function SigninPage() {
   const handleForm = async (event: FormEvent) => {
     event.preventDefault();
     const { result, error } = await signin(email, password);
-  };
-
-  useEffect(() => {
-    if (loggedIn) {
-      router.push("/workspace");
+    console.log(result);
+    if (result) {
+      router.replace("/workspace");
     }
-  }, [loggedIn, router]);
+  };
 
   return (
     <div>

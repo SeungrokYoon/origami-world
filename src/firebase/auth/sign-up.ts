@@ -1,13 +1,15 @@
-import FIREBASE_APP from "@/firebase/config";
-import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
-
-const auth = getAuth(FIREBASE_APP);
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { FIREBASE_AUTH } from "../config";
 
 export default async function signup(email: string, password: string) {
   let result = null;
   let error = null;
   try {
-    result = await createUserWithEmailAndPassword(auth, email, password);
+    result = await createUserWithEmailAndPassword(
+      FIREBASE_AUTH,
+      email,
+      password,
+    );
   } catch (e) {
     error = e;
   }

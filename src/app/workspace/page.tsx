@@ -4,19 +4,12 @@ import { Canvas } from "@react-three/fiber";
 import MyElement3D from "./MyElement3D";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
-import { useFireBaseAuthContext } from "@/context/FirebaseContextProvider";
+import { useFireBaseAuthContext } from "@/context/AuthContext";
 
 export default function WorkspacePage() {
   const { loggedIn } = useFireBaseAuthContext();
   const router = useRouter();
 
-  useEffect(() => {
-    if (!loggedIn) {
-      router.push("/signin");
-    }
-  }, [loggedIn, router]);
-
-  if (!loggedIn) return;
   return (
     <article className="w-full">
       WorkspacePage

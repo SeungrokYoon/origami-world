@@ -4,7 +4,7 @@ import "@/styles/globals.css";
 import RecoilRootProvider from "@/components/provider/RecoilRootProvider";
 import clsx from "clsx";
 import GlobalPageLayout from "@/components/layout/GlobalPage.layout";
-import { FirebaseContextProvider } from "@/context/FirebaseContextProvider";
+import { AuthContextProvider } from "@/context/AuthContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,11 +21,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={clsx(inter.className, "flex justify-center")}>
-        <FirebaseContextProvider>
+        <AuthContextProvider>
           <RecoilRootProvider>
             <GlobalPageLayout>{children}</GlobalPageLayout>
           </RecoilRootProvider>
-        </FirebaseContextProvider>
+        </AuthContextProvider>
       </body>
     </html>
   );

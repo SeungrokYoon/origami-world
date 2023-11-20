@@ -1,11 +1,11 @@
 "use client";
 
-import { useFireBaseAuthContext } from "@/context/FirebaseContextProvider";
+import { useAuthContext } from "@/context/AuthContext";
 import signOut from "@/firebase/auth/sign-out";
 import { PropsWithChildren } from "react";
 
 export default function GlobalPageLayout({ children }: PropsWithChildren) {
-  const { loggedIn } = useFireBaseAuthContext();
+  const { loggedIn } = useAuthContext();
 
   return (
     <main className="min-h-screen w-full max-w-5xl">

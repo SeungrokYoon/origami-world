@@ -1,8 +1,5 @@
-import { getAuth } from "firebase/auth";
-import FIREBASE_APP from "../config";
-
-const auth = getAuth(FIREBASE_APP);
+import { FIREBASE_AUTH } from "../config";
 
 export default function checkCurrentUser() {
-  return auth.currentUser;
+  return FIREBASE_AUTH.currentUser;
 }

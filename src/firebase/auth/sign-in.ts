@@ -1,20 +1,17 @@
-import FIREBASE_APP from "@/firebase/config";
 import {
   browserSessionPersistence,
-  getAuth,
   setPersistence,
   signInWithEmailAndPassword,
 } from "firebase/auth";
-
-const auth = getAuth(FIREBASE_APP);
+import { FIREBASE_AUTH } from "../config";
 
 export default async function signin(email: string, password: string) {
   let result = null;
   let error = null;
   try {
-    setPersistence(auth, browserSessionPersistence)
+    setPersistence(FIREBASE_AUTH, browserSessionPersistence)
       .then(() => {
-        return signInWithEmailAndPassword(auth, email, password);
+        signInWithEmailAndPassword(FIREBASE_AUTH, email, password);
       })
       .catch((e) => {
         console.log(e);
